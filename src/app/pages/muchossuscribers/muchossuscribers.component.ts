@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Subscription, interval } from 'rxjs';
+import { desuscribir } from '../../app.component';
 
 
 @Component({
@@ -8,7 +9,7 @@ import { Subscription, interval } from 'rxjs';
   styleUrls: ['./muchossuscribers.component.scss'],
   standalone:true
 })
-
+@desuscribir
 export class MuchossuscribersComponent implements OnInit {
 
   private misuscribcion!:Subscription;
@@ -45,5 +46,7 @@ export class MuchossuscribersComponent implements OnInit {
     });
 
   }
+
+  ngOnDestroy(){}
 
 }

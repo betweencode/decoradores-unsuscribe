@@ -1,5 +1,6 @@
 import { Component, OnDestroy, OnInit } from '@angular/core';
 import { Subscription, interval } from 'rxjs';
+import { desuscribir } from '../../app.component';
 
 
 
@@ -10,10 +11,11 @@ import { Subscription, interval } from 'rxjs';
   standalone:true
 })
 
-
+@desuscribir
 export class MicomponenteComponent implements OnInit{
 
   private misuscribcion!:Subscription;
+  private misuscribcion2!:Subscription;
 
 
 
@@ -27,6 +29,12 @@ export class MicomponenteComponent implements OnInit{
    this.misuscribcion =  interval(1000).subscribe(datos =>{
       console.log(datos);
     });
+
+
+    this.misuscribcion2 =  interval(1000).subscribe(datos =>{
+      console.log("mis datos",datos);
+    });
+
 
 
   }
